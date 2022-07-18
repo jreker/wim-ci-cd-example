@@ -49,14 +49,14 @@ public class RestControllerIntegrationTest {
     }
 
     @Test
-    public void testGetVersion() {
+    public void testGetVersion() throws Exception {
         mockMvc.perform(get("/version"))
                 .andExpect(status().isOk());
     }
 
     
     @Test
-    public void testHelloWorld() {
+    public void testHelloWorld() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk());
     }
