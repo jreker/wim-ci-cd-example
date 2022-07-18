@@ -92,7 +92,7 @@ jobs:
           target/calculator.jar
         retention-days: 30
 
- deploy-staging:
+  deploy-staging:
     name: Deploy to Staging
     timeout-minutes: 10
     needs: package
