@@ -92,7 +92,7 @@ jobs:
           target/calculator.jar
         retention-days: 30
 
- deploy:
+ deploy-staging:
     name: Deploy to Staging
     timeout-minutes: 10
     needs: package
@@ -112,7 +112,7 @@ jobs:
           MAIL: ${{secrets.HEROKU_MAIL}}
           BRANCH_NAME: ${{ github.head_ref }}
 
-  deploy:
+  deploy-production:
     name: Deploy to Production
     timeout-minutes: 10
     needs: package
