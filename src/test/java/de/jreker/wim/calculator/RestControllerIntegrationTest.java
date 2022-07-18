@@ -1,7 +1,9 @@
 package de.jreker.wim.calculator;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import de.jreker.wim.calculator.entity.Square;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import de.jreker.wim.calculator.entity.Square;
 
 
 @AutoConfigureMockMvc
@@ -45,5 +47,17 @@ public class RestControllerIntegrationTest {
                 .andExpect(jsonPath("$.result").value(8));
     }
 
+    @Test
+    public void testGetVersion() {
+        mockMvc.perform(get("/version"))
+                .andExpect(status().isOk());
+    }
+
+    
+    @Test
+    public void testHelloWorld() {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk());
+    }
 
 }

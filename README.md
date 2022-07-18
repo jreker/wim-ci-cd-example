@@ -1,6 +1,5 @@
-
-
-
+[![Deploy on Push](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pipeline.yml/badge.svg)](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pipeline.yml)
+[![Deploy on PR](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pr-pipeline.yml/badge.svg)](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pr-pipeline.yml)
 [![Jacoco Coverage](.github/badges/jacoco.svg)](.github/badges/jacoco.svg)
 
 # WIM CI/CD Example Project
