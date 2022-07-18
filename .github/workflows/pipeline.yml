@@ -119,7 +119,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Upload to Heroku
-        uses: jreker/heroku-deploy-action@v1.5
+        uses: jreker/heroku-deploy-action@v1.6
         with:
           APP_NAME: wim-app-prod
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
