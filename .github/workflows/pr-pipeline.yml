@@ -92,14 +92,11 @@ jobs:
           target/calculator.jar
         retention-days: 30
 
- deploy-staging:
+ deploystaging:
     name: Deploy to Staging
     timeout-minutes: 10
     needs: package
     runs-on: ubuntu-latest
-    environment:
-      name: UAT-Check
-      url: https://wim-app-staging.herokuapp.com/
     steps:
       - uses: actions/checkout@v3
         with:
@@ -112,7 +109,7 @@ jobs:
           MAIL: ${{secrets.HEROKU_MAIL}}
           BRANCH_NAME: ${{ github.head_ref }}
 
-  deploy-production:
+  deployproduction:
     name: Deploy to Production
     timeout-minutes: 10
     needs: package
