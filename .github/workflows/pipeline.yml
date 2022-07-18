@@ -112,7 +112,7 @@ jobs:
   deploy-production:
     name: Deploy to Production
     timeout-minutes: 10
-    needs: package
+    needs: deploy-staging
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
