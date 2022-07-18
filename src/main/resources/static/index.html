@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Square calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script>
+      function calculate() {
+        
+        let data = {
+            a: document.getElementById("a").value,
+            b: document.getElementById("b").value,
+            c: document.getElementById("c").value
+        }
+
+        fetch("calc/square", {
+          method: "POST", 
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            document.getElementById("result").innerHTML = "Result: " + data.result;
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </head>
+  <body style="font-family: Verdana, Geneva, Tahoma, sans-serif">
+    <form>
+      <label for="a">Value a:</label><br />
+      <input type="number" id="a" name="a" required /><br />
+      <label for="b">Value b:</label><br />
+      <input type="number" id="b" name="b" required /><br />
+      <label for="b">Value c:</label><br />
+      <input type="number" id="c" name="c" required /><br /><br />
+      <button type="button" onclick="calculate()">Calculate</button><br />
+    </form>
+    <h4 id="result"></h4>
+  </body>
+</html>
