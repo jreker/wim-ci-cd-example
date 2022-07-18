@@ -39,6 +39,6 @@ public class RestController {
 
     @GetMapping("/potd")
     public ResponseEntity<?> getPickOfTheDay() {
-        return ResponseEntity.ok("Pick of the day!!");
+        return ResponseEntity.ok("Pick of the day!!!");
     }
 }
