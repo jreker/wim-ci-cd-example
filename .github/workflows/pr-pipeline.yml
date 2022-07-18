@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Deploy on Push
 
 on:
   workflow_dispatch:
@@ -92,7 +92,7 @@ jobs:
           target/calculator.jar
         retention-days: 30
 
-  deploystaging:
+  deploy-staging:
     name: Deploy to Staging
     timeout-minutes: 10
     needs: package
@@ -109,7 +109,7 @@ jobs:
           MAIL: ${{secrets.HEROKU_MAIL}}
           BRANCH_NAME: ${{ github.head_ref }}
 
-  deployproduction:
+  deploy-production:
     name: Deploy to Production
     timeout-minutes: 10
     needs: package
