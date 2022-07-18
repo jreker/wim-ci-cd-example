@@ -18,10 +18,10 @@ public class CalculatorTest {
 
     @Test
     public void testCalculationResult() {
-        CalculationResult result = new CalculationResult();
-        result.setResult(2.0);
+        CalculationResult result = new CalculationResult(2.0);
+        result.setResult(3.0);
 
-        assertEquals(2.0, result.getResult());
+        assertEquals(3.0, result.getResult());
     }
 
 
