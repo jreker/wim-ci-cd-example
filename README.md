@@ -1,6 +1,6 @@
 
-[![Deploy on Push](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pr-pipeline.yml/badge.svg?branch=master)](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pr-pipeline.yml)
-[![Deploy on PRs](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pipeline.yml/badge.svg)](https://github.com/jreker/wim-ci-cd-example/actions/workflows/pipeline.yml)
+
+
 [![Jacoco Coverage](.github/badges/jacoco.svg)](.github/badges/jacoco.svg)
 
 # WIM CI/CD Example Project
@@ -57,3 +57,4 @@ heroku git:remote -a wim-java-backend
 **Create custom action:**
 https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#commit-tag-and-push-your-action-to-github
 
+**Example** https://github.com/open-sauced/hot/tree/main/.github/workflows
