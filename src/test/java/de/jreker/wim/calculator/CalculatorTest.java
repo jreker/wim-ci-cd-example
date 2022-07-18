@@ -1,18 +1,28 @@
 package de.jreker.wim.calculator;
 
-import de.jreker.wim.calculator.entity.CalculationResult;
-import de.jreker.wim.calculator.entity.Square;
-import de.jreker.wim.calculator.util.Calculator;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import de.jreker.wim.calculator.entity.CalculationResult;
+import de.jreker.wim.calculator.entity.Square;
+import de.jreker.wim.calculator.util.Calculator;
 
 @SpringBootTest
 public class CalculatorTest {
 
     @Autowired
     Calculator calculator;
+
+    @Test
+    public void testCalculationResult() {
+        CalculationResult result = new CalculationResult();
+        result.setResult(2.0);
+
+        assertEquals(2.0, result.getResult());
+    }
 
 
     @Test
