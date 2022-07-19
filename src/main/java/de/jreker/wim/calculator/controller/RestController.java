@@ -36,9 +36,4 @@ public class RestController {
     public ResponseEntity<?> getVersion() {
         return ResponseEntity.ok("Version 3");
     }
-
-    @GetMapping("/potd")
-    public ResponseEntity<?> getPickOfTheDay() {
-        return ResponseEntity.ok("Pick of the day!!!");
-    }
 }
