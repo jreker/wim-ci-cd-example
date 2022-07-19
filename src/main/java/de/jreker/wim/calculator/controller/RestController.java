@@ -34,7 +34,7 @@ public class RestController {
 
     @GetMapping("/version")
     public ResponseEntity<?> getVersion() {
-        return ResponseEntity.ok("Version 2.2 - Feature-A");
+        return ResponseEntity.ok("Version 2.2 - Feature-C");
     }
 
     @GetMapping("/potd")
