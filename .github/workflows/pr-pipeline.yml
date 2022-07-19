@@ -40,6 +40,7 @@ jobs:
         run: heroku git:remote --app=${{ env.HEROKU_APP_NAME }}
       - name: Push to Heroku
         run: git push heroku ${{ github.head_ref }}:master --force
+      
       - name: Add comment to PR
         if: github.event.action == 'opened'
         run: |
