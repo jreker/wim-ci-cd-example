@@ -33,7 +33,7 @@ jobs:
       - name: Copy environment variables to Heroku app
        
         run: |
-          heroku config --shell --app=my-development-app > .env
+          heroku config --shell --app=${{ env.HEROKU_APP_NAME }} > .env
           cat .env | tr '\n' ' ' | xargs heroku config:set --app=${{ env.HEROKU_APP_NAME }}
 
       - name: Add Heroku remote
