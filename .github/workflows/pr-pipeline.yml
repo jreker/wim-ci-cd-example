@@ -1,10 +1,8 @@
 name: Deploy on Push
 
 on:
-  workflow_dispatch:
-    branches: [ "master" ]
-  push:
-    branches: [ "master" ]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
 
 env:
   HEROKU_APP_NAME: wim-stg-pr-${{ github.event.number }}
