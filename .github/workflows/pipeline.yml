@@ -107,7 +107,7 @@ jobs:
           APP_NAME: wim-app-staging
           HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
           MAIL: ${{secrets.HEROKU_MAIL}}
-          BRANCH_NAME: ${{ github.head_ref }}
+          BRANCH_NAME: master
 
   deploy-production:
     name: Deploy to Production

@@ -9,6 +9,7 @@ env:
 
 jobs:
   compile:
+    if: github.event.action != 'closed'
     name: Maven Compile
     timeout-minutes: 10
     runs-on: ubuntu-latest
@@ -27,6 +28,7 @@ jobs:
       run: mvn -B compile --file pom.xml
 
   test:
+    if: github.event.action != 'closed'
     name: Maven Test
     timeout-minutes: 10
     runs-on: ubuntu-latest
@@ -71,6 +73,7 @@ jobs:
       
 
   package:
+    if: github.event.action != 'closed'
     name: Maven Package
     timeout-minutes: 10
     runs-on: ubuntu-latest
@@ -94,6 +97,7 @@ jobs:
         retention-days: 30
 
   deploy-staging:
+    if: github.event.action != 'closed'
     name: Deploy to Staging
     timeout-minutes: 10
     needs: package

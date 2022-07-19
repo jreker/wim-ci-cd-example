@@ -1,0 +1,17 @@
+name: Cleanup apps
+on:
+  pull_request:
+    types: [closed]
+
+env:
+  HEROKU_APP_NAME: wim-stg-pr-${{ github.event.number }}
+
+jobs: 
+  cleanup:
+    name: Cleanup Heroku apps
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+    - name: Destroy Heroku app
+      if: github.event.action == 'closed'
+      run: heroku apps:destroy --app=${{ env.HEROKU_APP_NAME }} --confirm=${{ env.HEROKU_APP_NAME }}
