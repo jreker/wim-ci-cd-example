@@ -14,14 +14,11 @@ jobs:
     steps:
 
     - name: Heroku Login
-      run: | 
-        cat >~/.netrc <<EOF \
-          machine api.heroku.com \
-            login ${{secrets.HEROKU_MAIL}} \
-          password ${{secrets.HEROKU_API_KEY}} \
-          machine git.heroku.com \
-            login ${{secrets.HEROKU_MAIL}} \
-          password ${{secrets.HEROKU_API_KEY}} \
-          EOF`
+      uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_email: ${{ secrets.HEROKU_MAIL }}
+        heroku_app_name: ${{ env.HEROKU_APP_NAME }}
+        justlogin: true
     - name: Destroy Heroku app
       run: heroku apps:destroy --app=${{ env.HEROKU_APP_NAME }} --confirm=${{ env.HEROKU_APP_NAME }}
