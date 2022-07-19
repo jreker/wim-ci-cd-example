@@ -110,10 +110,11 @@ jobs:
           justlogin: true
       - name: Add Heroku remote
         run: heroku git:remote --app=wim-app-prod
-      - name: Push to Heroku
-        run: git push heroku ${{ github.head_ref }}:master --force
       - name: Git status
         run: git status
+      - name: Push to Heroku
+        run: git push heroku ${{ github.head_ref }}:master --force
+
 
   deploy-production:
     name: Deploy to Production
