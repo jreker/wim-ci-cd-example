@@ -29,13 +29,6 @@ jobs:
        
         run: heroku apps:create ${{ env.HEROKU_APP_NAME }} # --team=my-team
 
-
-      - name: Copy environment variables to Heroku app
-       
-        run: |
-          heroku config --shell --app=${{ env.HEROKU_APP_NAME }} > .env
-          cat .env | tr '\n' ' ' | xargs heroku config:set --app=${{ env.HEROKU_APP_NAME }}
-
       - name: Add Heroku remote
         run: heroku git:remote --app=${{ env.HEROKU_APP_NAME }}
       - name: Push to Heroku
