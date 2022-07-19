@@ -101,6 +101,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
+      - name: Rename branch
+        run: git branch -m master
+      - name: Rename branch
+        run: git status
+
       - name: Upload to Heroku
         uses: jreker/heroku-deploy-action@v1.6
         with:
