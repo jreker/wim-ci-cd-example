@@ -106,10 +106,10 @@ jobs:
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_email: ${{secrets.HEROKU_MAIL}}
-          heroku_app_name: wim-app-prod
+          heroku_app_name: wim-app-staging-${{ github.event.number }}
           justlogin: true
       - name: Add Heroku remote
-        run: heroku git:remote --app=wim-app-prod
+        run: heroku git:remote --app=wim-app-staging-${{ github.event.number }}
       - name: Git status
         run: git status
       - name: Push to Heroku
