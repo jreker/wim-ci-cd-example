@@ -105,7 +105,7 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_email: user@example.com
+          heroku_email: ${{secrets.HEROKU_MAIL}}
           heroku_app_name: wim-app-prod
           justlogin: true
       - name: Add Heroku remote
