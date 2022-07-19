@@ -12,6 +12,16 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
+
+    - name: Heroku Login
+      run: | 
+        cat >~/.netrc <<EOF \
+          machine api.heroku.com \
+            login ${{secrets.HEROKU_MAIL}} \
+          password ${{secrets.HEROKU_API_KEY}} \
+          machine git.heroku.com \
+            login ${{secrets.HEROKU_MAIL}} \
+          password ${{secrets.HEROKU_API_KEY}} \
+          EOF`
     - name: Destroy Heroku app
-      if: github.event.action == 'closed'
       run: heroku apps:destroy --app=${{ env.HEROKU_APP_NAME }} --confirm=${{ env.HEROKU_APP_NAME }}
