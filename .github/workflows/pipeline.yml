@@ -82,6 +82,8 @@ jobs:
         java-version: '18'
         distribution: 'temurin'
         cache: maven
+    - name: Generate Build Info
+      run: mvn spring-boot:build-info --file pom.xml -Dmaven.test.skip=true      
     - name: Maven Package
       run: mvn -B package --file pom.xml -Dmaven.test.skip=true      
     - name: Upload the artifact

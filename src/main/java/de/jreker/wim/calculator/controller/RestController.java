@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.info.BuildProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +18,13 @@ import de.jreker.wim.calculator.util.Calculator;
 public class RestController {
 
     @Autowired
+    BuildProperties buildProperties;
+
+    @Autowired
     Calculator calculator;
 
     @PostMapping("/calc/square")
     public ResponseEntity<CalculationResult> calcCube(@RequestBody Square square) {
-
         return ResponseEntity.ok(calculator.calculateSquare(square));
     }
 
@@ -33,7 +36,7 @@ public class RestController {
     }
 
     @GetMapping("/version")
-    public ResponseEntity<?> getVersion() {
-        return ResponseEntity.ok("Version 3");
+    public ResponseEntity<BuildProperties> getVersion() {
+        return ResponseEntity.ok(buildProperties);
     }
 }

@@ -20,10 +20,8 @@ public class CalculatorTest {
     public void testCalculationResult() {
         CalculationResult result = new CalculationResult(2.0);
         result.setResult(3.0);
-
         assertEquals(3.0, result.getResult());
     }
-
 
     @Test
     public void squareCalculatorTest() {
@@ -33,11 +31,6 @@ public class CalculatorTest {
         square.setC(2);
 
         CalculationResult result = calculator.calculateSquare(square);
-
-
         assertEquals(8,result.getResult());
-
     }
-
-
 }

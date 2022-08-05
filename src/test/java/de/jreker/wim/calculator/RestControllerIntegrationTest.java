@@ -31,15 +31,12 @@ public class RestControllerIntegrationTest {
         objectMapper = new ObjectMapper();
     }
 
-
     @Test
     public void testSquareCalculatorEndpoint() throws Exception {
-
         Square square = new Square();
         square.setA(2);
         square.setB(2);
         square.setC(2);
-
 
         mockMvc.perform(post("/calc/square")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -54,7 +51,6 @@ public class RestControllerIntegrationTest {
                 .andExpect(status().isOk());
     }
 
-    
     @Test
     public void testHelloWorld() throws Exception {
         mockMvc.perform(get("/"))
