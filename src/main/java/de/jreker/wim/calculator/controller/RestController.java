@@ -32,7 +32,7 @@ public class RestController {
     public ResponseEntity<?> hello() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        return ResponseEntity.ok("Hello World at " + dtf.format(now) + " :-)");
+        return ResponseEntity.ok("Hello World at " + dtf.format(now) + " ;-)");
     }
 
     @GetMapping("/version")
