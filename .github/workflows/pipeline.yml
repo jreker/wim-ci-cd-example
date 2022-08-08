@@ -116,6 +116,8 @@ jobs:
     timeout-minutes: 10
     needs: deploy-staging
     runs-on: ubuntu-latest
+    environment:
+        name: UAT-Check
     steps:
       - uses: actions/checkout@v3
         with:
